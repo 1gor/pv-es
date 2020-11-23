@@ -19,21 +19,77 @@
 #+Email: igor@hoodies.team
 
 * PlantVillage mission
+#+ATTR_REVEAL: :frag (roll-in) :frag_idx (1 2)
 - increase yields of smallholder farmers
-- by providing crop management advice
+- by providing crop management _advice_
 ** Advice is from:
+   #+ATTR_REVEAL: :frag (roll-in) :frag_idx (1 2)
   - Human experts (Western scientists)
   - AI Models
-** Advice is based on *factors*:
+** Advice is based on _factors_:
+#+ATTR_REVEAL: :frag (roll-in) :frag_idx (1 2 3 4 5)
   - Stress levels (current and forecasted)
   - Time till harvest
   - The crop
   - Location conditions
-** Local factors are learned from
+  - History of factors
+** Factor data origin
+#+ATTR_REVEAL: :frag (roll-in) :frag_idx (1 2)
   - Remote Sensors (satellites etc.)
   - Local presence
-** Factors are learned by means of
-  - Local network of charity non-paid activists/staff workers
+** Factors data by means of
+#+ATTR_REVEAL: :frag (roll-in) :frag_idx (1 2)
+  - Local network of activists/staff workers
   - Connecting to government/supra-nationals data
 
-* Each farm factors are learned from
+* Hyper-local data collection is core competency
+* Field Agent management (and Farmer Networking) enables this core activity
+* How are those concepts reflected in PlantVillage web app?
+* Example: what is associated with the user?
+/blogposts, ai diseases, ai pests, ai whiteflies, scouts, scout surveys, posts, portal admins, portals, soil advice, pest infos, solds, crop infos, cold crops, saved locations, location crops, gardens, followings, following topics, following diseases, following questions, image, devices, user advises, advises, feedbacks, traps, trap collections, locust surveys, farm visits/
+* What activity can we identify?
+#+ATTR_REVEAL: :frag (roll-in) :frag_idx (1 2 3)
+- submitting some data about a location (pests, crops on a farm etc.)
+- collaborating with other users (feedbacks, blogposts etc.)
+- receiving advice (soil advice)
+* Domain model has problems
+* Mixing of concerns is bad
+** A better way...
+[[file:images/separation-of-concerns.png]]
+** Even better...
+[[file:images/separation-of-concerns-2.png]]
+* Not taking account of the time dimension
+** Today's state only
+[[file:images/panel-snapshot.jpg]]
+* So
+* Current challenges
+#+ATTR_REVEAL: :frag (roll-in) :frag_idx (1 2 3 4)
+- simplify the model
+- reflect time aspect
+- adapt to future changes
+- manage production system (monolith)
+* Event Sourcing/CQRS
+In this context, events describe things that have happened that are of interest to us
+** Survey-related events
+   - SurveySubmitted
+   - SurveyAccepted (By Curator)
+   - SurveyRejected (ByCurator)
+** Another subject domain
+   - FarmFertilizerApplied
+   - DaysToHarvestUpdated
+   - PestIdentified /{ which pest? }/
+** Yet another subject domain
+   (probably useful)
+   - LeadFarmerCameOnline
+   - LeadFarmerLostConnection
+* All current state of our domain objects are calculated from the events
+* CQRS
+[[file:images/circular-architecture.png]]
+* Why?
+#+ATTR_REVEAL: :frag (roll-in) :frag_idx (1 2 3 4 5)
+- Adaptable for eventual change
+- Leads to clean separation of concerns
+- Adds time dimension to data
+- Built-in rules engine and conditions monitor
+- Can be implemented in parallel with legacy app
+* End

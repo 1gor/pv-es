@@ -29,57 +29,217 @@
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide">
-<h1 class="title">Event Sourcing/CQRS at PlantVillage</h1><h2 class="author">Igor Drozdov</h2><p class="date">Created: 2020-11-23 Mon 16:12</p>
+<h1 class="title">Event Sourcing/CQRS at PlantVillage</h1><h2 class="author">Igor Drozdov</h2><p class="date">Created: 2020-11-23 Mon 18:54</p>
 </section>
 
 <section>
-<section id="slide-orgf35efe2">
-<h2 id="orgf35efe2">PlantVillage mission</h2>
+<section id="slide-org78660b1">
+<h2 id="org78660b1">PlantVillage mission</h2>
 <ul>
-<li>increase yields of smallholder farmers</li>
-<li>by providing crop management advice</li>
+<li data-fragment-index="1" class="fragment roll-in">increase yields of smallholder farmers</li>
+<li data-fragment-index="2" class="fragment roll-in">by providing crop management <span class="underline">advice</span></li>
 
 </ul>
 </section>
-<section id="slide-org86ba001">
-<h3 id="org86ba001">Advice is from:</h3>
+<section id="slide-org146885c">
+<h3 id="org146885c">Advice is from:</h3>
 <ul>
-<li>Human experts (Western scientists)</li>
-<li>AI Models</li>
+<li data-fragment-index="1" class="fragment roll-in">Human experts (Western scientists)</li>
+<li data-fragment-index="2" class="fragment roll-in">AI Models</li>
 
 </ul>
 </section>
-<section id="slide-orgdd7fd18">
-<h3 id="orgdd7fd18">Advice is based on <b>factors</b>:</h3>
+<section id="slide-org19abcd9">
+<h3 id="org19abcd9">Advice is based on <span class="underline">factors</span>:</h3>
 <ul>
-<li>Stress levels (current and forecasted)</li>
-<li>Time till harvest</li>
-<li>Crop grown</li>
-<li>Location conditions</li>
+<li data-fragment-index="1" class="fragment roll-in">Stress levels (current and forecasted)</li>
+<li data-fragment-index="2" class="fragment roll-in">Time till harvest</li>
+<li data-fragment-index="3" class="fragment roll-in">The crop</li>
+<li data-fragment-index="4" class="fragment roll-in">Location conditions</li>
+<li data-fragment-index="5" class="fragment roll-in">History of factors</li>
 
 </ul>
 </section>
-<section id="slide-org521a5a1">
-<h3 id="org521a5a1">Local factors are learned from</h3>
+<section id="slide-org465c0ac">
+<h3 id="org465c0ac">Factor data origin</h3>
 <ul>
-<li>Remote Sensors (satellites etc.)</li>
-<li>Local presence</li>
+<li data-fragment-index="1" class="fragment roll-in">Remote Sensors (satellites etc.)</li>
+<li data-fragment-index="2" class="fragment roll-in">Local presence</li>
 
 </ul>
 </section>
-<section id="slide-org9c129eb">
-<h3 id="org9c129eb">Factors are learned by means of</h3>
+<section id="slide-org35022e9">
+<h3 id="org35022e9">Factors data by means of</h3>
 <ul>
-<li>Local network of charity non-paid activists/staff workers</li>
-<li>Connecting to government/supra-nationals data</li>
+<li data-fragment-index="1" class="fragment roll-in">Local network of activists/staff workers</li>
+<li data-fragment-index="2" class="fragment roll-in">Connecting to government/supra-nationals data</li>
 
 </ul>
 
 </section>
 </section>
 <section>
-<section id="slide-orgae3a82f">
-<h2 id="orgae3a82f">Each farm factors are learned from</h2>
+<section id="slide-org803d522">
+<h2 id="org803d522">Hyper-local data collection is core competency</h2>
+</section>
+</section>
+<section>
+<section id="slide-orgbdd06af">
+<h2 id="orgbdd06af">Field Agent management (and Farmer Networking) enables this core activity</h2>
+</section>
+</section>
+<section>
+<section id="slide-org3fd7dd0">
+<h2 id="org3fd7dd0">How are those concepts reflected in PlantVillage web app?</h2>
+</section>
+</section>
+<section>
+<section id="slide-orgd195bc9">
+<h2 id="orgd195bc9">Example: what is associated with the user?</h2>
+<p>
+<i>blogposts, ai diseases, ai pests, ai whiteflies, scouts, scout surveys, posts, portal admins, portals, soil advice, pest infos, solds, crop infos, cold crops, saved locations, location crops, gardens, followings, following topics, following diseases, following questions, image, devices, user advises, advises, feedbacks, traps, trap collections, locust surveys, farm visits</i>
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orga020a01">
+<h2 id="orga020a01">What activity can we identify?</h2>
+<ul>
+<li data-fragment-index="1" class="fragment roll-in">submitting some data about a location (pests, crops on a farm etc.)</li>
+<li data-fragment-index="2" class="fragment roll-in">collaborating with other users (feedbacks, blogposts etc.)</li>
+<li data-fragment-index="3" class="fragment roll-in">receiving advice (soil advice)</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org3e0d3e8">
+<h2 id="org3e0d3e8">Domain model has problems</h2>
+</section>
+</section>
+<section>
+<section id="slide-orgbcac9f0">
+<h2 id="orgbcac9f0">Mixing of concerns is bad</h2>
+<div class="outline-text-2" id="text-orgbcac9f0">
+</div>
+</section>
+<section id="slide-org7712128">
+<h3 id="org7712128">A better way&#x2026;</h3>
+
+<div class="figure">
+<p><img src="images/separation-of-concerns.png" alt="separation-of-concerns.png" />
+</p>
+</div>
+</section>
+<section id="slide-org8aa6046">
+<h3 id="org8aa6046">Even better&#x2026;</h3>
+
+<div class="figure">
+<p><img src="images/separation-of-concerns-2.png" alt="separation-of-concerns-2.png" />
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org61ea395">
+<h2 id="org61ea395">Not taking account of the time dimension</h2>
+<div class="outline-text-2" id="text-org61ea395">
+</div>
+</section>
+<section id="slide-orgd4919fb">
+<h3 id="orgd4919fb">Today's state only</h3>
+
+<div class="figure">
+<p><img src="images/panel-snapshot.jpg" alt="panel-snapshot.jpg" />
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgd613d80">
+<h2 id="orgd613d80">So</h2>
+</section>
+</section>
+<section>
+<section id="slide-org84e254c">
+<h2 id="org84e254c">Current challenges</h2>
+<ul>
+<li data-fragment-index="1" class="fragment roll-in">simplify the model</li>
+<li data-fragment-index="2" class="fragment roll-in">reflect time aspect</li>
+<li data-fragment-index="3" class="fragment roll-in">adapt to future changes</li>
+<li data-fragment-index="4" class="fragment roll-in">manage production system (monolith)</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgca0998c">
+<h2 id="orgca0998c">Event Sourcing/CQRS</h2>
+<p>
+In this context, events describe things that have happened that are of interest to us
+</p>
+</section>
+<section id="slide-orgaab054c">
+<h3 id="orgaab054c">Survey-related events</h3>
+<ul>
+<li>SurveySubmitted</li>
+<li>SurveyAccepted (By Curator)</li>
+<li>SurveyRejected (ByCurator)</li>
+
+</ul>
+</section>
+<section id="slide-orgc458bf0">
+<h3 id="orgc458bf0">Another subject domain</h3>
+<ul>
+<li>FarmFertilizerApplied</li>
+<li>DaysToHarvestUpdated</li>
+<li>PestIdentified <i>{ which pest? }</i></li>
+
+</ul>
+</section>
+<section id="slide-orgeca86df">
+<h3 id="orgeca86df">Yet another subject domain</h3>
+<p>
+(probably useful)
+</p>
+<ul>
+<li>LeadFarmerCameOnline</li>
+<li>LeadFarmerLostConnection</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orge03ad05">
+<h2 id="orge03ad05">All current state of our domain objects are calculated from the events</h2>
+</section>
+</section>
+<section>
+<section id="slide-org82c5ee4">
+<h2 id="org82c5ee4">CQRS</h2>
+
+<div class="figure">
+<p><img src="images/circular-architecture.png" alt="circular-architecture.png" />
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org35ad2c8">
+<h2 id="org35ad2c8">Why?</h2>
+<ul>
+<li data-fragment-index="1" class="fragment roll-in">Adaptable for eventual change</li>
+<li data-fragment-index="2" class="fragment roll-in">Leads to clean separation of concerns</li>
+<li data-fragment-index="3" class="fragment roll-in">Adds time dimension to data</li>
+<li data-fragment-index="4" class="fragment roll-in">Built-in rules engine and conditions monitor</li>
+<li data-fragment-index="5" class="fragment roll-in">Can be implemented in parallel with legacy app</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org08b3e04">
+<h2 id="org08b3e04">End</h2>
 </section>
 </section>
 </div>
