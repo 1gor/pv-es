@@ -1,0 +1,3 @@
+* We target projection to have one single query
+We use Domain Object models on the write side, and we use an optimised query on the read side.
+source: https://www.infoq.com/presentations/event-sourcing/ ~25:00

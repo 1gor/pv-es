@@ -1,0 +1,39 @@
+#    -*- mode: org -*-
+#+EXPORT_FILE_NAME: index.html
+#+OPTIONS: reveal_center:t reveal_progress:t reveal_history:t reveal_control:t
+#+OPTIONS: reveal_mathjax:t reveal_rolling_links:t reveal_keyboard:t reveal_overview:t num:nil
+# #+OPTIONS: reveal_width:1200 reveal_height:800
+#+OPTIONS: toc:1
+#+OPTIONS: toc:nil reveal_mathjax:t
+# #+REVEAL_MARGIN: 0.2
+# #+REVEAL_MIN_SCALE: 0.5
+# #+REVEAL_MAX_SCALE: 2.5
+# #+REVEAL_TRANS: none
+#+REVEAL_THEME: white
+# #+REVEAL_HLEVEL: 999
+#+REVEAL_EXTRA_CSS: ./presentation.css
+#+REVEAL_PLUGINS: (highlight)
+
+#+TITLE: Event Sourcing/CQRS at PlantVillage
+#+Author: Igor Drozdov
+#+Email: igor@hoodies.team
+
+* PlantVillage mission
+- increase yields of smallholder farmers
+- by providing crop management advice
+** Advice is from:
+  - Human experts (Western scientists)
+  - AI Models
+** Advice is based on *factors*:
+  - Stress levels (current and forecasted)
+  - Time till harvest
+  - The crop
+  - Location conditions
+** Local factors are learned from
+  - Remote Sensors (satellites etc.)
+  - Local presence
+** Factors are learned by means of
+  - Local network of charity non-paid activists/staff workers
+  - Connecting to government/supra-nationals data
+
+* Each farm factors are learned from

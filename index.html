@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Event Sourcing/CQRS at PlantVillage</title>
+<meta name="author" content="Igor Drozdov"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/css/theme/white.css" id="theme"/>
+
+<link rel="stylesheet" href="./presentation.css"/>
+<link rel="stylesheet" href="./reveal.js/lib/css/zenburn.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1 class="title">Event Sourcing/CQRS at PlantVillage</h1><h2 class="author">Igor Drozdov</h2><p class="date">Created: 2020-11-23 Mon 16:12</p>
+</section>
+
+<section>
+<section id="slide-orgf35efe2">
+<h2 id="orgf35efe2">PlantVillage mission</h2>
+<ul>
+<li>increase yields of smallholder farmers</li>
+<li>by providing crop management advice</li>
+
+</ul>
+</section>
+<section id="slide-org86ba001">
+<h3 id="org86ba001">Advice is from:</h3>
+<ul>
+<li>Human experts (Western scientists)</li>
+<li>AI Models</li>
+
+</ul>
+</section>
+<section id="slide-orgdd7fd18">
+<h3 id="orgdd7fd18">Advice is based on <b>factors</b>:</h3>
+<ul>
+<li>Stress levels (current and forecasted)</li>
+<li>Time till harvest</li>
+<li>Crop grown</li>
+<li>Location conditions</li>
+
+</ul>
+</section>
+<section id="slide-org521a5a1">
+<h3 id="org521a5a1">Local factors are learned from</h3>
+<ul>
+<li>Remote Sensors (satellites etc.)</li>
+<li>Local presence</li>
+
+</ul>
+</section>
+<section id="slide-org9c129eb">
+<h3 id="org9c129eb">Factors are learned by means of</h3>
+<ul>
+<li>Local network of charity non-paid activists/staff workers</li>
+<li>Connecting to government/supra-nationals data</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgae3a82f">
+<h2 id="orgae3a82f">Each farm factors are learned from</h2>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/js/reveal.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: 'c',
+rollingLinks: true,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'convex', // see README of reveal.js for options
+transitionSpeed: 'default',
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+ { src: './reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+
+});
+</script>
+</body>
+</html>
